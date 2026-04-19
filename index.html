@@ -4,80 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Institut Genomic — Sciences de la Santé</title>
-  <style>
-    :root {
-      --primary: #0f4c81;
-      --primary-dark: #0a3559;
-      --secondary: #1ea7e1;
-      --accent: #7bc52d;
-      --accent-dark: #5c9e18;
-      --text: #143047;
-      --muted: #637588;
-      --border: rgba(15, 76, 129, 0.1);
-      --shadow: 0 18px 45px rgba(8, 40, 66, 0.12);
-      --container: 1180px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:linear-gradient(180deg,#f8fcff 0%,#eef7ff 100%);line-height:1.6}
-    img{max-width:100%;display:block}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--container));margin:0 auto}
-    .section{padding:90px 0}.section-title{font-size:clamp(30px,4vw,52px);line-height:1.1;color:var(--primary-dark);margin-bottom:16px;font-weight:800;letter-spacing:-.02em}.section-subtitle{font-size:18px;color:var(--muted);max-width:720px}
-    .badge{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;background:rgba(123,197,45,.12);color:var(--accent-dark);border:1px solid rgba(123,197,45,.25);border-radius:999px;font-weight:700;margin-bottom:20px}.badge:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 8px rgba(123,197,45,.15)}
-    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(255,255,255,.86);border-bottom:1px solid rgba(15,76,129,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:84px}.brand{display:flex;align-items:center;gap:14px}.brand-logo{width:64px;height:64px;object-fit:contain;border-radius:18px;background:#fff;box-shadow:0 10px 25px rgba(15,76,129,.1);padding:6px}.brand h1{font-size:18px;line-height:1.2;color:var(--primary-dark)}.brand p{font-size:13px;color:var(--muted)}
-    .nav-links{display:flex;align-items:center;gap:28px;font-weight:700;color:var(--primary-dark)}.nav-links a:hover{color:var(--secondary)}.header-actions{display:flex;align-items:center;gap:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:800;transition:.3s ease;border:none;cursor:pointer;font-size:15px}.btn-primary{background:linear-gradient(135deg,var(--accent) 0%,#91db40 100%);color:#fff;box-shadow:0 14px 28px rgba(123,197,45,.28)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(123,197,45,.35)}.btn-secondary{background:rgba(15,76,129,.08);color:var(--primary-dark);border:1px solid rgba(15,76,129,.1)}.btn-secondary:hover{transform:translateY(-3px);background:rgba(15,76,129,.12)}
-    .hero{position:relative;overflow:hidden;padding:70px 0 40px}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;z-index:0;filter:blur(10px)}.hero:before{width:420px;height:420px;background:rgba(30,167,225,.12);top:-120px;left:-120px}.hero:after{width:460px;height:460px;background:rgba(123,197,45,.14);bottom:-180px;right:-120px}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center}.hero-copy h2{font-size:clamp(36px,5vw,68px);line-height:1.02;letter-spacing:-.03em;color:var(--primary-dark);margin-bottom:20px;font-weight:900}.hero-copy h2 span{color:var(--secondary)}.hero-copy p{font-size:18px;color:var(--muted);max-width:670px;margin-bottom:28px}
-    .hero-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:30px}.hero-point{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.75);border:1px solid rgba(15,76,129,.08);border-radius:18px;box-shadow:0 10px 25px rgba(8,40,66,.06);font-weight:700;color:var(--primary-dark)}.hero-point i{width:34px;height:34px;border-radius:12px;background:rgba(30,167,225,.12);color:var(--secondary);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-weight:900}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.stat-card{background:rgba(255,255,255,.84);border:1px solid rgba(15,76,129,.08);border-radius:20px;padding:18px;box-shadow:0 14px 30px rgba(8,40,66,.08)}.stat-card strong{display:block;font-size:28px;color:var(--primary-dark);margin-bottom:4px}.stat-card span{color:var(--muted);font-weight:600;font-size:14px}
-    .hero-visual{position:relative}.hero-card{position:relative;background:linear-gradient(180deg,#ffffff 0%,#eef8ff 100%);border:1px solid rgba(15,76,129,.08);border-radius:34px;padding:24px;box-shadow:0 25px 55px rgba(8,40,66,.16);overflow:hidden}.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,167,225,.09),rgba(123,197,45,.09));pointer-events:none}
-    .hero-card-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;z-index:1}.hero-card-top .mini-brand{display:flex;align-items:center;gap:12px}.hero-card-top .mini-brand img{width:54px;height:54px;object-fit:contain;border-radius:16px;background:#fff;padding:4px;box-shadow:0 8px 18px rgba(15,76,129,.08)}.hero-card-top .mini-brand strong{display:block;color:var(--primary-dark);font-size:15px}.hero-card-top .mini-brand span{color:var(--muted);font-size:13px}.hero-campus{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;background:rgba(123,197,45,.14);color:var(--accent-dark);padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px}
-    .hero-main-image{position:relative;z-index:1;border-radius:28px;overflow:hidden;aspect-ratio:4/4.4;box-shadow:0 24px 48px rgba(8,40,66,.2)}.hero-main-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,35,59,.05) 0%,rgba(7,35,59,.45) 100%);pointer-events:none}.hero-main-image img{width:100%;height:100%;object-fit:cover}.floating-card{position:absolute;z-index:3;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid rgba(15,76,129,.14);border-radius:20px;padding:16px 18px;box-shadow:0 20px 35px rgba(8,40,66,.16);max-width:250px}.floating-card.top{top:110px;left:-28px}.floating-card.bottom{bottom:30px;right:-20px}.floating-card strong{display:block;color:var(--primary-dark);font-size:18px;margin-bottom:6px}.floating-card p{color:var(--muted);font-size:14px;margin:0}
-    .features-strip{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature-box{background:#fff;border:1px solid var(--border);border-radius:22px;padding:24px 20px;box-shadow:0 14px 30px rgba(8,40,66,.06);text-align:center}.feature-box .icon{width:62px;height:62px;margin:0 auto 16px;border-radius:20px;background:linear-gradient(145deg,rgba(30,167,225,.14),rgba(123,197,45,.12));color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}.feature-box h3{font-size:22px;color:var(--primary-dark);margin-bottom:8px}.feature-box p{color:var(--muted);font-size:15px}
-    .about-grid{display:grid;grid-template-columns:.98fr 1.02fr;gap:34px;align-items:center;margin-top:44px}.about-media{position:relative}.about-media .main-shot{border-radius:30px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/5.8}.about-media .main-shot img{width:100%;height:100%;object-fit:cover}.about-overlay{position:absolute;right:-16px;bottom:28px;width:260px;background:rgba(10,53,89,.96);color:#fff;padding:24px;border-radius:24px;box-shadow:0 18px 38px rgba(8,40,66,.24)}.about-overlay strong{display:block;font-size:34px;margin-bottom:6px}.about-overlay span{display:block;color:rgba(255,255,255,.82);font-weight:600}
-    .list{display:grid;gap:14px;margin:26px 0 32px}.list-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 10px 24px rgba(8,40,66,.05)}.list-item i{width:34px;height:34px;border-radius:12px;background:rgba(123,197,45,.14);color:var(--accent-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-style:normal;font-weight:900}.list-item h4{font-size:18px;color:var(--primary-dark);margin-bottom:4px}.list-item p{font-size:15px;color:var(--muted)}
-    .campus-grid,.program-grid,.stats-grid,.reasons-grid{display:grid;gap:22px;margin-top:42px}.campus-grid{grid-template-columns:repeat(2,1fr)}.campus-card,.program-card,.reason-card,.stats-card,.contact-card{background:#fff;border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}.campus-image{height:260px;overflow:hidden;position:relative}.campus-image img{width:100%;height:100%;object-fit:cover}.campus-badge{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);color:var(--primary-dark);padding:10px 14px;border-radius:999px;font-weight:800;box-shadow:0 10px 20px rgba(8,40,66,.14)}.campus-body{padding:28px}.campus-body h3,.program-card h3,.reason-card h3,.contact-card h3{font-size:28px;color:var(--primary-dark);margin-bottom:10px}.campus-body p,.program-card p,.reason-card p,.contact-card p,.stats-card p{color:var(--muted)}
-    .campus-meta{display:grid;gap:14px;margin:20px 0 24px}.campus-meta div{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:#f6fbff;border:1px solid rgba(15,76,129,.07);font-weight:700;color:var(--primary-dark)}
-    .program-grid{grid-template-columns:repeat(3,1fr)}.program-card{padding:30px 24px;position:relative}.program-icon{width:72px;height:72px;border-radius:22px;background:linear-gradient(145deg,rgba(30,167,225,.16),rgba(123,197,45,.12));display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:var(--primary);margin-bottom:18px}.program-card ul{list-style:none;margin:18px 0 24px;display:grid;gap:12px}.program-card li{color:var(--text);font-weight:600;display:flex;gap:10px;align-items:center}.program-card li:before{content:"✓";width:24px;height:24px;border-radius:50%;background:rgba(123,197,45,.16);color:var(--accent-dark);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}.program-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(15,76,129,.08);color:var(--primary-dark);font-weight:700;font-size:13px}
-    .split-section{display:grid;grid-template-columns:.95fr 1.05fr;gap:30px;align-items:stretch;margin-top:40px}.contact-card{padding:32px}.contact-list{display:grid;gap:14px;margin:22px 0 30px}.contact-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:18px;background:#f6fbff;border:1px solid rgba(15,76,129,.07)}.contact-item strong{display:block;color:var(--primary-dark);font-size:16px}.contact-item span{color:var(--muted);font-size:14px}.contact-item a{color:var(--accent-dark);font-weight:800;white-space:nowrap}
-    .form-box{background:linear-gradient(180deg,#ffffff 0%,#eef7ff 100%);border:1px solid var(--border);border-radius:30px;padding:34px;box-shadow:var(--shadow)}.form-grid{display:grid;gap:16px;margin-top:22px}.field{display:grid;gap:8px}.field label{font-weight:700;color:var(--primary-dark);font-size:14px}.field input,.field select,.field textarea{width:100%;border:1px solid rgba(15,76,129,.12);border-radius:16px;padding:16px 18px;font-size:15px;color:var(--text);background:#fff;outline:none;transition:.25s ease}.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(30,167,225,.55);box-shadow:0 0 0 4px rgba(30,167,225,.12)}.field textarea{min-height:120px;resize:vertical}.form-note{margin-top:14px;color:var(--muted);font-size:14px}
-    .reasons-grid{grid-template-columns:repeat(3,1fr)}.reason-card{padding:28px}.reason-icon{width:68px;height:68px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(123,197,45,.14),rgba(30,167,225,.13));color:var(--primary);font-size:28px;font-weight:900;margin-bottom:18px}
-    .stats-grid{grid-template-columns:repeat(4,1fr)}.stats-card{padding:28px 24px;text-align:center}.stats-card strong{display:block;color:var(--secondary);font-size:42px;line-height:1;margin-bottom:8px;font-weight:900}.stats-card h4{color:var(--primary-dark);font-size:18px;margin-bottom:6px}
-    .cta-banner{margin-top:42px;background:linear-gradient(135deg,var(--primary-dark) 0%,#0f5e9f 100%);color:#fff;border-radius:34px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 20px 45px rgba(8,40,66,.2)}.cta-banner h3{font-size:clamp(28px,4vw,42px);line-height:1.08;margin-bottom:10px}.cta-banner p{color:rgba(255,255,255,.82);max-width:680px}.footer{padding:38px 0 50px;color:var(--muted)}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;border-top:1px solid rgba(15,76,129,.08)}.footer-brand{display:flex;align-items:center;gap:14px}.footer-brand img{width:54px;height:54px;object-fit:contain;border-radius:16px;background:#fff;padding:4px;box-shadow:0 8px 18px rgba(15,76,129,.08)}.mobile-toggle{display:none;width:48px;height:48px;border-radius:14px;border:1px solid rgba(15,76,129,.08);background:#fff;color:var(--primary-dark);font-size:22px;font-weight:900}
-    @media (max-width:1100px){.hero-grid,.about-grid,.split-section{grid-template-columns:1fr}.features-strip,.program-grid,.reasons-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}.campus-grid{grid-template-columns:1fr}.floating-card.top{left:10px}.floating-card.bottom{right:10px}}
-    @media (max-width:900px){.nav-links,.header-actions{display:none}.mobile-toggle{display:inline-flex;align-items:center;justify-content:center}.site-header.open .nav-mobile{display:grid}.nav-mobile{display:none;gap:14px;padding:0 0 22px}.nav-mobile a{padding:14px 16px;border-radius:16px;background:#f6fbff;border:1px solid rgba(15,76,129,.08);font-weight:700;color:var(--primary-dark);text-align:left}.hero-points,.hero-stats,.features-strip,.program-grid,.reasons-grid,.stats-grid{grid-template-columns:1fr}.cta-banner,.footer-grid{flex-direction:column;align-items:flex-start}}
-    @media (max-width:640px){.section{padding:70px 0}.nav{min-height:78px}.brand h1{font-size:15px}.brand p{font-size:12px}.brand-logo{width:56px;height:56px}.hero{padding-top:48px}.hero-copy h2{font-size:38px}.hero-copy p,.section-subtitle{font-size:16px}.hero-card,.form-box,.contact-card,.reason-card,.campus-card,.program-card,.stats-card{border-radius:22px}.floating-card{position:static;max-width:100%;margin-top:16px}.about-overlay{position:static;width:100%;margin-top:18px}.campus-body,.program-card,.contact-card,.reason-card,.stats-card,.form-box{padding:24px 20px}.cta-banner{padding:26px 22px}}
-  </style>
+  <meta name="description" content="Institut Genomic des Sciences de la Santé — formations infirmières à Tanger et Taroudant. Inscriptions ouvertes." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header" id="header">
     <div class="container">
       <nav class="nav">
-        <a href="#top" class="brand">
-          <img src="logo.jpg" alt="Institut Genomic" class="brand-logo" />
-          <div>
+        <a href="#top" class="brand" aria-label="Retour en haut">
+          <img src="logo.jpg" alt="Logo Institut Genomic" class="brand-logo" />
+          <div class="brand-text">
             <h1>Institut Genomic</h1>
             <p>Des Sciences de la Santé</p>
           </div>
         </a>
+
         <div class="nav-links">
           <a href="#about">À propos</a>
-          <a href="#campus">Nos campus</a>
+          <a href="#campus">Campus</a>
           <a href="#programs">Formations</a>
           <a href="#contact">Contact</a>
         </div>
+
         <div class="header-actions">
           <a href="tel:+212600000000" class="btn btn-secondary">Appeler</a>
           <a href="#contact" class="btn btn-primary">Demander des infos</a>
         </div>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu">☰</button>
       </nav>
+
       <div class="nav-mobile" id="mobileMenu">
         <a href="#about">À propos</a>
-        <a href="#campus">Nos campus</a>
+        <a href="#campus">Campus</a>
         <a href="#programs">Formations</a>
         <a href="#contact">Contact</a>
         <a href="tel:+212600000000">Appeler</a>
@@ -88,48 +47,60 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="badge">Inscriptions ouvertes 2025 / 2026</div>
-            <h2>Préparez votre avenir dans les <span>métiers de la santé</span>.</h2>
-            <p>Institut Genomic est un établissement de formation en sciences de la santé avec deux campus à <strong>Tanger</strong> et <strong>Taroudant</strong>. Nous accompagnons les étudiants vers une insertion professionnelle rapide grâce à une formation pratique et reconnue.</p>
-            <div class="hero-points">
-              <div class="hero-point"><i>✓</i> Établissement agréé</div>
-              <div class="hero-point"><i>✓</i> Deux campus au Maroc</div>
-              <div class="hero-point"><i>✓</i> Programmes professionnalisants</div>
-              <div class="hero-point"><i>✓</i> Accompagnement à l’insertion</div>
-            </div>
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">Je demande des informations</a>
-              <a href="#programs" class="btn btn-secondary">Découvrir les formations</a>
-            </div>
-            <div class="hero-stats">
-              <div class="stat-card"><strong>2</strong><span>Campus disponibles</span></div>
-              <div class="stat-card"><strong>3</strong><span>Formations principales</span></div>
-              <div class="stat-card"><strong>2025</strong><span>Inscriptions en cours</span></div>
-            </div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="badge">Inscriptions ouvertes 2025 / 2026</div>
+          <h2>Construisez une carrière d’excellence dans les <span>sciences de la santé</span>.</h2>
+          <p>
+            L’Institut Genomic des Sciences de la Santé forme les futurs professionnels du soin avec une pédagogie moderne,
+            un encadrement de proximité et deux campus stratégiques à <strong>Tanger</strong> et <strong>Taroudant</strong>.
+          </p>
+
+          <div class="hero-points">
+            <div class="hero-point"><i>✓</i> Établissement agréé</div>
+            <div class="hero-point"><i>✓</i> Diplômes professionnalisants</div>
+            <div class="hero-point"><i>✓</i> Plateaux techniques modernes</div>
+            <div class="hero-point"><i>✓</i> Insertion orientée carrière</div>
           </div>
-          <div class="hero-visual">
-            <div class="hero-card">
-              <div class="hero-card-top">
-                <div class="mini-brand">
-                  <img src="logo.jpg" alt="Institut Genomic" />
-                  <div><strong>Institut Genomic</strong><span>Sciences de la Santé</span></div>
-                </div>
-                <div class="hero-campus">Campus premium • Tanger & Taroudant</div>
-              </div>
-              <div class="hero-main-image"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1800&q=80" alt="Étudiants en sciences infirmières dans un laboratoire moderne" /></div>
-            </div>
-            <div class="floating-card top"><strong>Formation orientée terrain</strong><p>Un parcours axé sur la pratique, l’accompagnement et la préparation à l’emploi.</p></div>
-            <div class="floating-card bottom"><strong>Admission ouverte</strong><p>Contactez-nous pour connaître les modalités d’inscription et les formations disponibles.</p></div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Je demande des informations</a>
+            <a href="#programs" class="btn btn-secondary">Voir les formations</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card"><strong>2</strong><span>Campus au Maroc</span></div>
+            <div class="stat-card"><strong>3</strong><span>Formations phares</span></div>
+            <div class="stat-card"><strong>+95%</strong><span>Satisfaction étudiante*</span></div>
           </div>
         </div>
-        <div class="features-strip">
-          <div class="feature-box"><div class="icon">✚</div><h3>Formation de qualité</h3><p>Un cadre d’apprentissage moderne pour construire une carrière sérieuse dans la santé.</p></div>
-          <div class="feature-box"><div class="icon">⚕</div><h3>Encadrement professionnel</h3><p>Des parcours pensés pour développer des compétences concrètes et utiles sur le terrain.</p></div>
-          <div class="feature-box"><div class="icon">⌘</div><h3>Double implantation</h3><p>Deux campus pour offrir plus de proximité et d’accessibilité aux futurs étudiants.</p></div>
-          <div class="feature-box"><div class="icon">➜</div><h3>Insertion rapide</h3><p>Des programmes construits pour faciliter l’intégration dans le monde professionnel.</p></div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="mini-brand">
+                <img src="logo.jpg" alt="Institut Genomic" />
+                <div>
+                  <strong>Institut Genomic</strong>
+                  <span>Excellence académique en santé</span>
+                </div>
+              </div>
+              <div class="hero-campus">Tanger • Taroudant</div>
+            </div>
+            <div class="hero-main-image">
+              <img src="campus-hero.jpg" alt="Étudiantes en formation médicale dans un environnement clinique moderne" />
+            </div>
+          </div>
+
+          <div class="floating-card top">
+            <strong>Pédagogie terrain</strong>
+            <p>Cours, ateliers pratiques et immersion professionnelle pour préparer l’emploi.</p>
+          </div>
+
+          <div class="floating-card bottom">
+            <strong>Admissions en cours</strong>
+            <p>Parlez à un conseiller pour choisir votre parcours et votre campus.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -137,18 +108,22 @@
     <section class="section" id="about">
       <div class="container">
         <div class="badge">À propos de l’institut</div>
-        <h2 class="section-title">Un institut tourné vers la réussite des futurs professionnels de santé</h2>
-        <p class="section-subtitle">Notre mission est d’offrir une formation sérieuse, pratique et accessible aux étudiants souhaitant évoluer dans les métiers de la santé et du soin.</p>
+        <h2 class="section-title">Un cadre de formation premium, sérieux et orienté résultats</h2>
+        <p class="section-subtitle">Nous accompagnons chaque candidat vers une montée en compétences concrète, reconnue et adaptée aux besoins du secteur de la santé.</p>
+
         <div class="about-grid">
           <div class="about-media">
-            <div class="main-shot"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1400&q=80" alt="Étudiants en santé en atelier de formation pratique" /></div>
-            <div class="about-overlay"><strong>2 Campus</strong><span>Tanger et Taroudant pour mieux vous accompagner</span></div>
+            <div class="main-shot">
+              <img src="about-image.jpg" alt="Atelier pratique en sciences infirmières" />
+            </div>
+            <div class="about-overlay"><strong>2 Campus</strong><span>Un accompagnement de proximité à Tanger et Taroudant</span></div>
           </div>
+
           <div>
             <div class="list">
-              <div class="list-item"><i>✓</i><div><h4>Établissement reconnu</h4><p>Une image institutionnelle professionnelle pour rassurer les étudiants et leurs familles.</p></div></div>
-              <div class="list-item"><i>✓</i><div><h4>Formation orientée vers l’emploi</h4><p>Des contenus pensés pour préparer les apprenants à intégrer rapidement un environnement professionnel.</p></div></div>
-              <div class="list-item"><i>✓</i><div><h4>Accompagnement des candidats</h4><p>Une communication claire et une équipe disponible pour informer, orienter et accompagner les inscriptions.</p></div></div>
+              <div class="list-item"><i>✓</i><div><h4>Image institutionnelle forte</h4><p>Une communication claire et professionnelle pour rassurer étudiants et familles.</p></div></div>
+              <div class="list-item"><i>✓</i><div><h4>Formation orientée employabilité</h4><p>Des compétences concrètes et des parcours alignés avec les réalités du terrain.</p></div></div>
+              <div class="list-item"><i>✓</i><div><h4>Suivi personnalisé des candidats</h4><p>Une équipe réactive pour informer, orienter et simplifier chaque étape de l’inscription.</p></div></div>
             </div>
             <a href="#contact" class="btn btn-primary">Recevoir plus d’informations</a>
           </div>
@@ -156,19 +131,45 @@
       </div>
     </section>
 
-    <section class="section" id="campus" style="background:rgba(255,255,255,.65)">
+    <section class="section section-soft" id="campus">
       <div class="container">
-        <div class="badge">Nos implantations</div>
-        <h2 class="section-title">Deux campus pour être plus proche de vous</h2>
-        <p class="section-subtitle">Institut Genomic accueille les étudiants dans deux villes stratégiques afin d’offrir plus d’accessibilité et de proximité.</p>
+        <div class="badge">Nos campus</div>
+        <h2 class="section-title">Deux implantations stratégiques pour mieux vous accueillir</h2>
+        <p class="section-subtitle">Choisissez le campus qui vous correspond et démarrez un parcours académique de qualité.</p>
+
         <div class="campus-grid">
           <article class="campus-card">
-            <div class="campus-image"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80" alt="Campus universitaire moderne pour les étudiants à Tanger" /><div class="campus-badge">📍 Campus Tanger</div></div>
-            <div class="campus-body"><h3>Tanger</h3><p>Un campus pensé pour accueillir les étudiants dans un cadre rassurant, moderne et orienté formation professionnelle.</p><div class="campus-meta"><div>📌 Ville : Tanger</div><div>🎓 Formations en sciences de la santé</div><div>📞 Contact : à personnaliser</div></div><a href="#contact" class="btn btn-primary">Demander des renseignements</a></div>
+            <div class="campus-image">
+              <img src="tanger-campus.jpg" alt="Campus de Tanger" />
+              <div class="campus-badge">📍 Campus Tanger</div>
+            </div>
+            <div class="campus-body">
+              <h3>Tanger</h3>
+              <p>Un environnement académique moderne, propice à l’apprentissage et à la réussite professionnelle.</p>
+              <div class="campus-meta">
+                <div>📌 Ville : Tanger</div>
+                <div>🎓 Parcours en sciences de la santé</div>
+                <div>📞 Contact : 0602103472</div>
+              </div>
+              <a href="#contact" class="btn btn-primary">Demander des renseignements</a>
+            </div>
           </article>
+
           <article class="campus-card">
-            <div class="campus-image"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80" alt="Espace académique professionnel pour le campus de Taroudant" /><div class="campus-badge">📍 Campus Taroudant</div></div>
-            <div class="campus-body"><h3>Taroudant</h3><p>Le campus de Taroudant accompagne les candidats dans leur parcours de formation avec une approche claire et professionnalisante.</p><div class="campus-meta"><div>📌 Ville : Taroudant</div><div>🎓 Formations infirmières et aide-soignant</div><div>📞 Contact : à personnaliser</div></div><a href="#contact" class="btn btn-primary">S’inscrire ou demander des infos</a></div>
+            <div class="campus-image">
+              <img src="taroudant-campus.jpg" alt="Campus de Taroudant" />
+              <div class="campus-badge">📍 Campus Taroudant</div>
+            </div>
+            <div class="campus-body">
+              <h3>Taroudant</h3>
+              <p>Un campus accessible avec un encadrement de proximité et une pédagogie professionnalisante.</p>
+              <div class="campus-meta">
+                <div>📌 Ville : Taroudant</div>
+                <div>🎓 Infirmier & aide-soignant</div>
+                <div>📞 Contact : 0603058907</div>
+              </div>
+              <a href="#contact" class="btn btn-primary">S’inscrire ou demander des infos</a>
+            </div>
           </article>
         </div>
       </div>
@@ -177,31 +178,28 @@
     <section class="section" id="programs">
       <div class="container">
         <div class="badge">Formations proposées</div>
-        <h2 class="section-title">Des programmes conçus pour le secteur de la santé</h2>
-        <p class="section-subtitle">Découvrez les principales formations mises en avant par l’établissement pour préparer les étudiants aux métiers du soin et de l’accompagnement.</p>
+        <h2 class="section-title">Des programmes pensés pour le secteur de la santé</h2>
+        <p class="section-subtitle">Des parcours académiques conçus pour développer compétences cliniques, rigueur et employabilité.</p>
+
         <div class="program-grid">
-          <article class="program-card"><div class="program-icon">🩺</div><h3>Infirmier Polyvalent</h3><p>Une formation complète destinée aux étudiants souhaitant développer des compétences élargies dans le domaine infirmier.</p><ul><li>Formation professionnalisante</li><li>Approche pratique et terrain</li><li>Préparation à l’insertion</li></ul><span class="program-tag">Programme phare</span></article>
-          <article class="program-card"><div class="program-icon">💉</div><h3>Infirmier Auxiliaire</h3><p>Un parcours adapté pour intégrer progressivement le monde du soin avec une base solide et des compétences opérationnelles.</p><ul><li>Acquisition des fondamentaux</li><li>Suivi pédagogique structuré</li><li>Orientation vers l’emploi</li></ul><span class="program-tag">Formation demandée</span></article>
-          <article class="program-card"><div class="program-icon">❤</div><h3>Aide Soignant</h3><p>Une voie essentielle pour les personnes souhaitant accompagner, assister et contribuer au bien-être des patients.</p><ul><li>Cadre d’apprentissage clair</li><li>Compétences utiles au terrain</li><li>Débouchés attractifs</li></ul><span class="program-tag">Parcours accessible</span></article>
+          <article class="program-card"><div class="program-icon">🩺</div><h3>Infirmier Polyvalent</h3><p>Formation complète pour exercer dans des environnements cliniques variés.</p><ul><li>Formation professionnalisante</li><li>Approche pratique</li><li>Préparation à l’insertion</li></ul><span class="program-tag">Programme phare</span></article>
+          <article class="program-card"><div class="program-icon">💉</div><h3>Infirmier Auxiliaire</h3><p>Un parcours structuré pour maîtriser les fondamentaux du soin.</p><ul><li>Bases cliniques solides</li><li>Suivi pédagogique</li><li>Orientation emploi</li></ul><span class="program-tag">Très demandé</span></article>
+          <article class="program-card"><div class="program-icon">❤</div><h3>Aide Soignant</h3><p>Une formation humaine et opérationnelle au service des patients.</p><ul><li>Compétences terrain</li><li>Cadre pédagogique clair</li><li>Débouchés concrets</li></ul><span class="program-tag">Parcours accessible</span></article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background:rgba(255,255,255,.72)">
+    <section class="section section-soft">
       <div class="container">
         <div class="badge">Pourquoi choisir Institut Genomic ?</div>
-        <h2 class="section-title">Une image forte, une offre claire, un parcours rassurant</h2>
-        <p class="section-subtitle">Cette landing page est pensée pour convertir les visiteurs en demandes d’information grâce à une présentation claire, professionnelle et rassurante.</p>
-        <div class="reasons-grid">
-          <article class="reason-card"><div class="reason-icon">✓</div><h3>Crédibilité</h3><p>Un positionnement visuel sérieux avec une identité graphique inspirée du logo et du secteur médical.</p></article>
-          <article class="reason-card"><div class="reason-icon">⚑</div><h3>Conversion</h3><p>Des appels à l’action visibles à chaque étape pour inciter le visiteur à prendre contact rapidement.</p></article>
-          <article class="reason-card"><div class="reason-icon">✦</div><h3>Lisibilité</h3><p>Une structure claire, mobile friendly et prête à être utilisée dans une future stratégie publicitaire.</p></article>
-        </div>
+        <h2 class="section-title">Une expérience premium, du premier contact à l’admission</h2>
+        <p class="section-subtitle">Nous avons conçu cette page pour rassurer, informer clairement et faciliter la prise de décision des futurs étudiants.</p>
+
         <div class="stats-grid">
           <article class="stats-card"><strong>2</strong><h4>Villes</h4><p>Tanger et Taroudant</p></article>
-          <article class="stats-card"><strong>3</strong><h4>Formations clés</h4><p>Parcours mis en avant</p></article>
-          <article class="stats-card"><strong>FR</strong><h4>Version actuelle</h4><p>Prête à présenter au client</p></article>
-          <article class="stats-card"><strong>100%</strong><h4>Responsive</h4><p>Compatible mobile et desktop</p></article>
+          <article class="stats-card"><strong>3</strong><h4>Formations clés</h4><p>Parcours professionnalisants</p></article>
+          <article class="stats-card"><strong>FR</strong><h4>Communication claire</h4><p>Landing page 100% française</p></article>
+          <article class="stats-card"><strong>24h</strong><h4>Réponse rapide</h4><p>Suivi des demandes d’information</p></article>
         </div>
       </div>
     </section>
@@ -210,22 +208,24 @@
       <div class="container">
         <div class="badge">Contact & inscription</div>
         <h2 class="section-title">Demandez plus d’informations dès maintenant</h2>
-        <p class="section-subtitle">Utilisez ce formulaire pour permettre aux futurs étudiants de laisser leurs coordonnées. Vous pourrez ensuite intégrer un vrai traitement backend Ruby ou un envoi par email.</p>
+        <p class="section-subtitle">Laissez vos coordonnées pour être recontacté par notre équipe d’admission.</p>
+
         <div class="split-section">
           <div class="contact-card">
             <h3>Besoin d’aide pour votre inscription ?</h3>
-            <p>Notre équipe peut vous accompagner pour choisir la formation la plus adaptée et vous informer sur les modalités d’admission.</p>
+            <p>Notre équipe vous guide vers la formation la plus adaptée à votre profil.</p>
             <div class="contact-list">
-              <div class="contact-item"><div><strong>Campus Taroudant</strong><span>Téléphone à personnaliser</span></div><a href="tel:+212602103472">0602103472</a></div>
-              <div class="contact-item"><div><strong>Campus Taroudant</strong><span>Deuxième contact</span></div><a href="tel:+212603058907">0603058907</a></div>
-              <div class="contact-item"><div><strong>Campus Taroudant</strong><span>Contact additionnel</span></div><a href="tel:+212772584951">0772584951</a></div>
-              <div class="contact-item"><div><strong>Campus principal</strong><span>Email à personnaliser</span></div><a href="mailto:contact@institut-genomic.ma">contact@institut-genomic.ma</a></div>
+              <div class="contact-item"><div><strong>Campus Tanger</strong><span>Admission</span></div><a href="tel:+212602103472">0602103472</a></div>
+              <div class="contact-item"><div><strong>Campus Taroudant</strong><span>Admission</span></div><a href="tel:+212603058907">0603058907</a></div>
+              <div class="contact-item"><div><strong>WhatsApp</strong><span>Information rapide</span></div><a href="https://wa.me/212772584951">0772584951</a></div>
+              <div class="contact-item"><div><strong>Email</strong><span>Service admissions</span></div><a href="mailto:contact@institut-genomic.ma">contact@institut-genomic.ma</a></div>
             </div>
             <a href="https://wa.me/212600000000" class="btn btn-primary">Contacter sur WhatsApp</a>
           </div>
+
           <div class="form-box">
             <h3>Recevoir les informations</h3>
-            <p>Laissez vos coordonnées et nous vous recontacterons rapidement.</p>
+            <p>Complétez ce formulaire et nous vous rappelons rapidement.</p>
             <form class="form-grid" onsubmit="event.preventDefault(); showMessage();">
               <div class="field"><label for="name">Nom complet</label><input id="name" type="text" placeholder="Votre nom complet"></div>
               <div class="field"><label for="phone">Téléphone</label><input id="phone" type="tel" placeholder="Votre numéro de téléphone"></div>
@@ -234,30 +234,31 @@
               <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Votre demande"></textarea></div>
               <button type="submit" class="btn btn-primary">Envoyer la demande</button>
             </form>
-            <p class="form-note" id="formMessage">Formulaire de démonstration prêt à être connecté à Ruby on Rails ou à un service d’email.</p>
+            <p class="form-note" id="formMessage">Formulaire de démonstration prêt à être connecté à votre backend.</p>
           </div>
         </div>
-        <div class="cta-banner"><div><h3>Institut Genomic — Une landing page pensée pour inspirer confiance.</h3><p>Cette version démo est idéale pour présenter au client une direction visuelle moderne, crédible et orientée conversion.</p></div><a href="#top" class="btn btn-primary">Revenir en haut</a></div>
+
+        <div class="cta-banner">
+          <div>
+            <h3>Institut Genomic — L’excellence en formation de santé.</h3>
+            <p>Une interface premium et responsive conçue pour inspirer confiance et générer des demandes qualifiées.</p>
+          </div>
+          <a href="#top" class="btn btn-primary">Revenir en haut</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="logo.jpg" alt="Institut Genomic"><div><strong>Institut Genomic</strong><p>Des Sciences de la Santé</p></div></div>
-        <p>© 2025 Institut Genomic. Démo de landing page.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="Institut Genomic">
+        <div><strong>Institut Genomic</strong><p>Des Sciences de la Santé</p></div>
       </div>
+      <p>© 2026 Institut Genomic. Tous droits réservés.</p>
     </div>
   </footer>
 
-  <script>
-    const header=document.getElementById('header');
-    const toggle=document.getElementById('mobileToggle');
-    const mobileMenu=document.getElementById('mobileMenu');
-    toggle.addEventListener('click',()=>header.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>header.classList.remove('open')));
-    function showMessage(){const msg=document.getElementById('formMessage');msg.textContent='Merci ! Votre demande a bien été enregistrée. Cette démo peut être reliée à votre backend Ruby.';msg.style.color='#1c7c25';msg.style.fontWeight='700';}
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
