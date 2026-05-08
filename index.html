@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,480 +39,586 @@
     }
 
     a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-    /* ── TOP BAR ── */
+    /* ────────────────────────────────
+       TOP BAR
+    ──────────────────────────────── */
     .topbar {
       background: var(--navy-dark);
       color: rgba(255,255,255,.78);
       font-size: 13px;
-      padding: 9px 7%;
+      padding: 9px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .topbar-contacts { display: flex; gap: 28px; align-items: center; }
+    .topbar-left { font-weight: 600; }
+    .topbar-contacts { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
     .topbar-contact {
-      display: flex; align-items: center; gap: 7px; font-weight: 600;
-      transition: color .2s;
+      display: flex; align-items: center; gap: 6px;
+      font-weight: 600; transition: color .2s;
+      white-space: nowrap;
     }
     .topbar-contact:hover { color: var(--orange-light); }
-    .topbar-contact .dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #25d366;
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #25d366;
       box-shadow: 0 0 0 3px rgba(37,211,102,.25);
+      flex-shrink: 0;
     }
 
-    /* ── HEADER ── */
+    /* ────────────────────────────────
+       HEADER
+    ──────────────────────────────── */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
       transition: box-shadow .3s;
     }
     .header-inner {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 7%; gap: 24px;
+      padding: 12px 5%; gap: 16px;
     }
 
     /* Logo */
-    .logo { display: flex; align-items: center; gap: 14px; }
-    .logo-icon {
-      width: 52px; height: 46px; position: relative; flex-shrink: 0;
-    }
-    .logo-icon .book-back {
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-icon { width: 46px; height: 40px; position: relative; }
+    .book-back {
       position: absolute; inset: 0;
-      border: 4px solid var(--navy);
-      border-radius: 12px 12px 4px 4px;
+      border: 3.5px solid var(--navy);
+      border-radius: 10px 10px 3px 3px;
       background: var(--white);
     }
-    .logo-icon .book-front {
-      position: absolute; top: -4px; right: -14px;
-      width: 52px; height: 46px;
-      border: 4px solid var(--orange);
+    .book-front {
+      position: absolute; top: -3.5px; right: -12px;
+      width: 46px; height: 40px;
+      border: 3.5px solid var(--orange);
       border-left: 0;
-      border-radius: 0 12px 4px 0;
+      border-radius: 0 10px 3px 0;
     }
-    .logo-text { font-family: 'Poppins', sans-serif; }
-    .logo-text .line1 { font-size: 13px; font-weight: 700; color: var(--text-soft); letter-spacing: .5px; text-transform: uppercase; }
-    .logo-text .line2 { font-size: 22px; font-weight: 900; color: var(--navy); line-height: 1; }
-    .logo-text .line2 span { color: var(--orange); }
-    .logo-text .line3 { font-size: 11px; font-weight: 600; color: var(--text-soft); letter-spacing: 1px; text-transform: uppercase; }
+    .logo-text { font-family: 'Poppins', sans-serif; line-height: 1.1; }
+    .logo-text .l1 { font-size: 11px; font-weight: 700; color: var(--text-soft); letter-spacing: .5px; text-transform: uppercase; }
+    .logo-text .l2 { font-size: 19px; font-weight: 900; color: var(--navy); }
+    .logo-text .l2 span { color: var(--orange); }
+    .logo-text .l3 { font-size: 10px; font-weight: 600; color: var(--text-soft); letter-spacing: 1px; text-transform: uppercase; }
 
-    /* Nav */
-    nav { display: flex; align-items: center; gap: 6px; }
-    nav a {
+    /* Desktop nav */
+    .desk-nav { display: flex; align-items: center; gap: 4px; }
+    .desk-nav a {
       font-size: 13px; font-weight: 700; color: var(--navy);
-      padding: 8px 14px; border-radius: 8px;
-      transition: background .2s, color .2s;
-      white-space: nowrap;
+      padding: 8px 12px; border-radius: 8px;
+      transition: background .2s, color .2s; white-space: nowrap;
     }
-    nav a:hover { background: var(--off-white); color: var(--orange); }
-    nav a.active { color: var(--orange); }
-
-    .btn-nav {
-      background: var(--orange);
-      color: var(--white) !important;
-      padding: 10px 20px !important;
-      border-radius: 10px !important;
-      font-size: 13px !important;
+    .desk-nav a:hover, .desk-nav a.active { background: var(--off-white); color: var(--orange); }
+    .btn-cta {
+      background: var(--orange); color: var(--white) !important;
+      padding: 10px 18px !important; border-radius: 10px !important;
       font-weight: 800 !important;
       box-shadow: 0 4px 16px var(--orange-glow);
       transition: transform .15s, box-shadow .15s, background .2s !important;
     }
-    .btn-nav:hover {
+    .btn-cta:hover {
       background: var(--orange-light) !important;
       transform: translateY(-1px);
       box-shadow: 0 6px 24px rgba(255,122,0,.3) !important;
     }
 
-    /* ── HERO ── */
+    /* Hamburger */
+    .ham {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 10px; border-radius: 8px;
+      transition: background .2s; flex-shrink: 0;
+    }
+    .ham:hover { background: var(--off-white); }
+    .ham span {
+      width: 22px; height: 2.5px; background: var(--navy);
+      border-radius: 2px; transition: transform .3s, opacity .3s;
+      display: block;
+    }
+    .ham.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity: 0; }
+    .ham.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mob-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(4,28,66,.6); z-index: 90;
+      opacity: 0; transition: opacity .3s;
+    }
+    .mob-overlay.open { display: block; opacity: 1; }
+    .mob-nav {
+      position: fixed; top: 0; right: -100%; bottom: 0;
+      width: min(300px, 85vw);
+      background: white; z-index: 95;
+      padding: 0; box-shadow: var(--shadow-lg);
+      transition: right .32s cubic-bezier(.4,0,.2,1);
+      display: flex; flex-direction: column; overflow-y: auto;
+    }
+    .mob-nav.open { right: 0; }
+    .mob-nav-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .mob-nav-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--off-white); display: flex; align-items: center;
+      justify-content: center; cursor: pointer; font-size: 18px;
+      color: var(--navy); border: none; flex-shrink: 0;
+    }
+    .mob-nav-links { padding: 8px 0; flex: 1; }
+    .mob-nav-links a {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 15px; font-weight: 700; padding: 14px 20px;
+      color: var(--navy); border-bottom: 1px solid var(--border);
+      transition: background .15s, color .15s;
+    }
+    .mob-nav-links a:hover { background: var(--off-white); color: var(--orange); }
+    .mob-nav-links a .nav-icon { font-size: 20px; width: 28px; text-align: center; }
+    .mob-nav-footer {
+      padding: 20px; border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .mob-cta-btn {
+      display: block; text-align: center;
+      padding: 14px; border-radius: 12px;
+      font-weight: 800; font-size: 15px;
+      background: var(--orange); color: white;
+      box-shadow: 0 4px 16px var(--orange-glow);
+    }
+    .mob-contact-row { display: flex; gap: 10px; }
+    .mob-contact-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 11px; border-radius: 10px; font-weight: 700; font-size: 13px;
+      border: 1.5px solid var(--border);
+    }
+
+    /* ────────────────────────────────
+       HERO
+    ──────────────────────────────── */
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 60px;
-      padding: 80px 7% 70px;
-      background: linear-gradient(135deg, #f0f5ff 0%, #fdf6f0 100%);
-      position: relative;
-      overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 50px;
+      padding: 70px 5% 60px;
+      background: linear-gradient(135deg, #eef4ff 0%, #fdf6f0 100%);
+      position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px; right: -120px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255,122,0,.08) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: -80px;
-      width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(6,40,93,.07) 0%, transparent 70%);
-      border-radius: 50%;
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(255,122,0,.09) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
     }
     .hero-content { position: relative; z-index: 1; }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,122,0,.1);
-      border: 1px solid rgba(255,122,0,.25);
-      color: var(--orange);
-      font-size: 12px; font-weight: 700;
-      padding: 6px 14px; border-radius: 100px;
-      margin-bottom: 22px;
-      letter-spacing: .4px;
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,122,0,.1); border: 1px solid rgba(255,122,0,.25);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
     }
-    .hero-badge::before { content: '●'; font-size: 9px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-badge .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
     .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 54px;
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      color: var(--navy);
+      font-family: 'Poppins', sans-serif; font-size: 50px;
+      font-weight: 900; line-height: 1.06; margin-bottom: 18px; color: var(--navy);
     }
-    .hero h1 .highlight { color: var(--orange); }
+    .hero h1 .hl { color: var(--orange); }
     .hero-sub {
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--text-soft);
-      margin-bottom: 36px;
-      line-height: 1.7;
+      font-size: 16px; font-weight: 500; color: var(--text-soft);
+      margin-bottom: 32px; line-height: 1.7;
     }
     .hero-sub strong { color: var(--navy); font-weight: 700; }
 
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-btn {
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hbtn {
       display: flex; align-items: center; gap: 12px;
-      padding: 16px 24px; border-radius: var(--radius);
+      padding: 15px 22px; border-radius: var(--radius);
       font-weight: 800; font-size: 14px;
-      cursor: pointer; transition: transform .15s, box-shadow .15s;
-      min-width: 220px;
+      transition: transform .15s, box-shadow .15s;
+      flex: 1; min-width: 200px;
     }
-    .hero-btn:hover { transform: translateY(-2px); }
-    .hero-btn .btn-icon { font-size: 26px; }
-    .hero-btn .btn-text .btn-main { display: block; }
-    .hero-btn .btn-text .btn-sub { display: block; font-size: 11px; font-weight: 500; opacity: .8; margin-top: 2px; }
-    .btn-blue { background: var(--navy); color: var(--white); box-shadow: 0 8px 24px rgba(6,40,93,.25); }
-    .btn-blue:hover { box-shadow: 0 12px 32px rgba(6,40,93,.35); }
-    .btn-orange { background: var(--orange); color: var(--white); box-shadow: 0 8px 24px var(--orange-glow); }
-    .btn-orange:hover { background: var(--orange-light); box-shadow: 0 12px 32px rgba(255,122,0,.3); }
+    .hbtn:hover { transform: translateY(-2px); }
+    .hbtn .hi { font-size: 26px; flex-shrink: 0; }
+    .hbtn .hm { display: block; }
+    .hbtn .hs { display: block; font-size: 11px; font-weight: 500; opacity: .8; margin-top: 1px; }
+    .hbtn-blue { background: var(--navy); color: white; box-shadow: 0 8px 24px rgba(6,40,93,.22); }
+    .hbtn-blue:hover { box-shadow: 0 12px 32px rgba(6,40,93,.32); }
+    .hbtn-orange { background: var(--orange); color: white; box-shadow: 0 8px 24px var(--orange-glow); }
+    .hbtn-orange:hover { background: var(--orange-light); box-shadow: 0 12px 32px rgba(255,122,0,.3); }
 
     .hero-stats {
-      display: flex; gap: 28px; margin-top: 36px; padding-top: 28px;
-      border-top: 1px solid var(--border);
+      display: flex; gap: 24px; margin-top: 32px; padding-top: 24px;
+      border-top: 1px solid rgba(6,40,93,.12); flex-wrap: wrap;
     }
-    .hero-stat .num {
-      font-family: 'Poppins', sans-serif;
-      font-size: 26px; font-weight: 900; color: var(--navy);
+    .hstat .num {
+      font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 900; color: var(--navy);
     }
-    .hero-stat .num span { color: var(--orange); }
-    .hero-stat .lbl { font-size: 12px; font-weight: 600; color: var(--text-soft); }
+    .hstat .num em { color: var(--orange); font-style: normal; }
+    .hstat .lbl { font-size: 12px; font-weight: 600; color: var(--text-soft); }
 
     .hero-visual { position: relative; z-index: 1; }
     .hero-img-wrap {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      position: relative;
+      border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: relative;
     }
-    .hero-img-wrap img {
-      width: 100%; height: 420px; object-fit: cover; display: block;
-      transition: transform .4s ease;
-    }
+    .hero-img-wrap img { width: 100%; height: 400px; object-fit: cover; transition: transform .4s; }
     .hero-img-wrap:hover img { transform: scale(1.03); }
     .hero-img-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(6,28,65,.55) 100%);
+      background: linear-gradient(180deg, transparent 55%, rgba(4,24,56,.55) 100%);
     }
     .hero-img-badge {
-      position: absolute; bottom: 24px; left: 24px; right: 24px;
-      background: rgba(255,255,255,.97);
-      border-radius: 12px; padding: 14px 18px;
-      display: flex; align-items: center; gap: 12px;
+      position: absolute; bottom: 20px; left: 16px; right: 16px;
+      background: rgba(255,255,255,.97); border-radius: 12px;
+      padding: 13px 16px; display: flex; align-items: center; gap: 11px;
       box-shadow: var(--shadow-md);
     }
-    .hero-img-badge .badge-icon { font-size: 28px; }
-    .hero-img-badge .badge-text strong { display: block; font-size: 14px; font-weight: 800; color: var(--navy); }
-    .hero-img-badge .badge-text span { font-size: 12px; color: var(--text-soft); }
-    .floating-card {
-      position: absolute; top: 24px; right: -20px;
-      background: var(--white); border-radius: 12px;
-      padding: 12px 16px; box-shadow: var(--shadow-md);
-      display: flex; align-items: center; gap: 10px;
+    .hero-img-badge .bi { font-size: 26px; }
+    .hero-img-badge strong { display: block; font-size: 13px; font-weight: 800; color: var(--navy); }
+    .hero-img-badge span { font-size: 12px; color: var(--text-soft); }
+
+    .float-card {
+      position: absolute; top: 20px; right: -16px;
+      background: white; border-radius: 12px; padding: 11px 15px;
+      box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 9px;
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    .floating-card .fc-icon { font-size: 24px; }
-    .floating-card .fc-text strong { display: block; font-size: 13px; font-weight: 800; color: var(--navy); }
-    .floating-card .fc-text span { font-size: 11px; color: var(--text-soft); }
+    .float-card .fi { font-size: 22px; }
+    .float-card strong { display: block; font-size: 12px; font-weight: 800; color: var(--navy); }
+    .float-card span { font-size: 11px; color: var(--text-soft); }
 
-    /* ── SECTIONS ── */
-    section { padding: 72px 7%; }
-    .section-label {
-      display: inline-block;
-      font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
-      text-transform: uppercase; color: var(--orange);
-      background: rgba(255,122,0,.08);
-      border: 1px solid rgba(255,122,0,.2);
-      padding: 5px 14px; border-radius: 100px;
-      margin-bottom: 14px;
+    /* ────────────────────────────────
+       SECTION BASE
+    ──────────────────────────────── */
+    section { padding: 64px 5%; }
+
+    .slabel {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase; color: var(--orange);
+      background: rgba(255,122,0,.08); border: 1px solid rgba(255,122,0,.2);
+      padding: 5px 13px; border-radius: 100px; margin-bottom: 12px;
     }
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 36px; font-weight: 900;
-      color: var(--navy); margin-bottom: 12px; line-height: 1.15;
+    .stitle {
+      font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 900;
+      color: var(--navy); line-height: 1.15; margin-bottom: 10px;
     }
-    .section-sub { font-size: 17px; color: var(--text-soft); max-width: 560px; }
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-header .section-sub { margin: 0 auto; }
+    .ssub { font-size: 16px; color: var(--text-soft); max-width: 540px; }
+    .sec-head { text-align: center; margin-bottom: 52px; }
+    .sec-head .ssub { margin: 0 auto; }
     .divider {
-      width: 56px; height: 4px; border-radius: 10px;
+      width: 52px; height: 4px; border-radius: 10px;
       background: linear-gradient(90deg, var(--orange), var(--orange-light));
-      margin: 16px auto 0;
+      margin: 14px auto 0;
     }
 
-    /* ── SOLUTIONS ── */
-    .solutions { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    /* ────────────────────────────────
+       SOLUTIONS
+    ──────────────────────────────── */
+    .solutions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
     .panel {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg); border: 1px solid var(--border);
+      overflow: hidden; box-shadow: var(--shadow-sm);
       transition: box-shadow .3s, transform .3s;
     }
     .panel:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .panel-header { padding: 32px 32px 24px; text-align: center; }
-    .panel.school .panel-header { background: linear-gradient(135deg, #0a3b8c, #1a5dcc); color: white; }
-    .panel.family .panel-header { background: linear-gradient(135deg, #e96800, #ff9a30); color: white; }
-    .panel-header-icon { font-size: 40px; margin-bottom: 12px; }
-    .panel-header h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 22px; font-weight: 900; margin-bottom: 6px;
-    }
-    .panel-header p { font-size: 14px; opacity: .88; line-height: 1.5; }
-    .panel-body { background: var(--white); padding: 28px; }
-    .service-card {
-      display: flex; gap: 18px;
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px; margin-bottom: 16px;
+
+    .ph { padding: 28px 28px 22px; text-align: center; }
+    .panel.school .ph { background: linear-gradient(135deg, #0a3b8c, #1460d4); color: white; }
+    .panel.family .ph { background: linear-gradient(135deg, #d96200, #ff9a30); color: white; }
+    .ph-icon { font-size: 38px; margin-bottom: 10px; }
+    .ph h2 { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 900; margin-bottom: 5px; }
+    .ph p { font-size: 14px; opacity: .88; line-height: 1.5; }
+
+    .pb { background: var(--white); padding: 24px; }
+
+    .svc {
+      display: flex; gap: 15px; background: var(--off-white);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 18px; margin-bottom: 14px;
       transition: border-color .2s, box-shadow .2s;
     }
-    .service-card:hover { border-color: #b3caf5; box-shadow: var(--shadow-sm); }
-    .service-icon {
-      width: 52px; height: 52px; flex-shrink: 0;
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
+    .svc:hover { border-color: #b3caf5; box-shadow: var(--shadow-sm); }
+    .svc-icon {
+      width: 48px; height: 48px; flex-shrink: 0; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
     }
-    .school .service-icon { background: rgba(6,59,134,.1); }
-    .family .service-icon { background: rgba(255,122,0,.1); }
-    .service-info h3 { font-size: 14px; font-weight: 800; margin-bottom: 10px; color: var(--navy); }
-    .family .service-info h3 { color: var(--orange); }
-    .feature-list { list-style: none; }
-    .feature-list li {
-      font-size: 13px; color: var(--text-soft); padding: 3px 0;
-      display: flex; align-items: center; gap: 8px;
+    .school .svc-icon { background: rgba(6,59,134,.1); }
+    .family .svc-icon { background: rgba(255,122,0,.1); }
+    .svc-info h3 { font-size: 13px; font-weight: 800; margin-bottom: 9px; color: var(--navy); }
+    .family .svc-info h3 { color: #c85500; }
+    .flist { list-style: none; }
+    .flist li {
+      font-size: 13px; color: var(--text-soft); padding: 2.5px 0;
+      display: flex; align-items: flex-start; gap: 7px; line-height: 1.5;
     }
-    .feature-list li::before {
-      content: '';
-      width: 16px; height: 16px; flex-shrink: 0;
-      border-radius: 50%;
-      background: #1db954 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.5 11.5L3 8l1-1 2.5 2.5 5-5 1 1z'/%3E%3C/svg%3E") center/cover;
+    .flist li::before {
+      content: '✓'; font-size: 11px; font-weight: 900;
+      color: white; background: #1db954;
+      border-radius: 50%; width: 16px; height: 16px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
     }
-    .panel-cta {
-      margin-top: 22px; display: block; text-align: center;
-      padding: 14px; border-radius: var(--radius);
+    .pcta {
+      margin-top: 20px; display: block; text-align: center;
+      padding: 13px; border-radius: 12px;
       font-weight: 800; font-size: 14px;
       transition: transform .15s, box-shadow .15s;
     }
-    .panel-cta:hover { transform: translateY(-2px); }
-    .school .panel-cta { background: var(--navy); color: white; box-shadow: 0 6px 20px rgba(6,40,93,.2); }
-    .school .panel-cta:hover { box-shadow: 0 10px 28px rgba(6,40,93,.3); }
-    .family .panel-cta { background: var(--orange); color: white; box-shadow: 0 6px 20px var(--orange-glow); }
-    .family .panel-cta:hover { background: var(--orange-light); box-shadow: 0 10px 28px rgba(255,122,0,.3); }
+    .pcta:hover { transform: translateY(-2px); }
+    .school .pcta { background: var(--navy); color: white; box-shadow: 0 6px 18px rgba(6,40,93,.18); }
+    .school .pcta:hover { box-shadow: 0 10px 28px rgba(6,40,93,.28); }
+    .family .pcta { background: var(--orange); color: white; box-shadow: 0 6px 18px var(--orange-glow); }
+    .family .pcta:hover { background: var(--orange-light); }
 
-    /* ── TRUST ── */
+    /* ────────────────────────────────
+       TRUST
+    ──────────────────────────────── */
     .trust { background: var(--off-white); }
-    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-    .trust-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 24px; text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .trust-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-    .trust-icon {
-      width: 64px; height: 64px; border-radius: 20px;
-      background: linear-gradient(135deg, #e8f0ff, #dbeafe);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px; margin: 0 auto 18px;
-    }
-    .trust-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
-    .trust-card p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-
-    /* ── PROCESS ── */
-    .process { background: var(--white); }
-    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
-    .process-steps::before {
-      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%;
-      height: 2px; background: linear-gradient(90deg, var(--navy), var(--orange)); z-index: 0;
-    }
-    .step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-    .step-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: var(--navy); color: white;
-      font-family: 'Poppins', sans-serif;
-      font-size: 24px; font-weight: 900;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px; border: 4px solid white;
-      box-shadow: var(--shadow-md);
-      transition: background .3s, transform .3s;
-    }
-    .step:hover .step-num { background: var(--orange); transform: scale(1.08); }
-    .step h3 { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
-    .step p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--off-white); }
-    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .testi-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .tcard {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 20px; text-align: center;
       box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s;
     }
-    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .testi-stars { color: #f5a623; font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
-    .testi-text { font-size: 14px; color: var(--text-soft); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
+    .tcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .tcard-icon {
+      width: 60px; height: 60px; border-radius: 18px;
+      background: linear-gradient(135deg, #e8f0ff, #dbeafe);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin: 0 auto 16px;
+    }
+    .tcard h3 { font-size: 15px; font-weight: 800; margin-bottom: 7px; }
+    .tcard p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+    /* ────────────────────────────────
+       PROCESS
+    ──────────────────────────────── */
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0; position: relative;
+    }
+    .process-grid::before {
+      content: ''; position: absolute; top: 34px; left: 12.5%; right: 12.5%;
+      height: 2px; background: linear-gradient(90deg, var(--navy), var(--orange)); z-index: 0;
+    }
+    .step { text-align: center; padding: 0 14px; position: relative; z-index: 1; }
+    .step-n {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: var(--navy); color: white;
+      font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; border: 4px solid white;
+      box-shadow: var(--shadow-md); transition: background .3s, transform .3s;
+    }
+    .step:hover .step-n { background: var(--orange); transform: scale(1.08); }
+    .step h3 { font-size: 14px; font-weight: 800; margin-bottom: 7px; }
+    .step p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+    /* ────────────────────────────────
+       TESTIMONIALS
+    ──────────────────────────────── */
+    .testi-section { background: var(--off-white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .tcard2 {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s;
+    }
+    .tcard2:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .stars { color: #f5a623; font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+    .ttext { font-size: 13.5px; color: var(--text-soft); line-height: 1.75; margin-bottom: 18px; font-style: italic; }
+    .tauthor { display: flex; align-items: center; gap: 11px; }
+    .tavatar {
+      width: 42px; height: 42px; border-radius: 50%;
       background: linear-gradient(135deg, var(--navy), var(--navy-light));
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 700; color: white; flex-shrink: 0;
+      font-size: 17px; font-weight: 700; color: white; flex-shrink: 0;
     }
-    .testi-author-info strong { display: block; font-size: 14px; font-weight: 800; }
-    .testi-author-info span { font-size: 12px; color: var(--text-soft); }
+    .tinfo strong { display: block; font-size: 13px; font-weight: 800; }
+    .tinfo span { font-size: 12px; color: var(--text-soft); }
 
-    /* ── CTA ── */
+    /* ────────────────────────────────
+       CTA SECTION
+    ──────────────────────────────── */
     .cta-section {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #0f4ba8 100%);
-      color: white; padding: 72px 7%; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, #0f4ba8 100%);
+      color: white; padding: 64px 5%; position: relative; overflow: hidden;
     }
     .cta-section::before {
-      content: ''; position: absolute; top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,122,0,.15) 0%, transparent 70%);
-      border-radius: 50%;
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(255,122,0,.16) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
     }
     .cta-inner {
       display: grid; grid-template-columns: 1.4fr 1fr;
-      align-items: center; gap: 60px; position: relative; z-index: 1;
+      align-items: center; gap: 50px; position: relative; z-index: 1;
     }
-    .cta-inner h2 { font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 900; margin-bottom: 8px; }
-    .cta-inner .cta-sub { font-size: 18px; color: var(--orange-light); font-weight: 700; margin-bottom: 32px; }
-    .cta-cards { display: flex; gap: 14px; flex-wrap: wrap; }
-    .cta-card {
-      border: 1px solid rgba(255,255,255,.2); border-radius: 14px;
-      padding: 16px 22px; display: flex; align-items: center; gap: 12px;
-      background: rgba(255,255,255,.06); backdrop-filter: blur(8px);
+    .cta-inner h2 { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 900; margin-bottom: 7px; }
+    .cta-sub { font-size: 17px; color: var(--orange-light); font-weight: 700; margin-bottom: 28px; }
+    .cta-cards { display: flex; gap: 12px; flex-wrap: wrap; }
+    .ccard {
+      border: 1px solid rgba(255,255,255,.2); border-radius: 13px;
+      padding: 14px 20px; display: flex; align-items: center; gap: 11px;
+      background: rgba(255,255,255,.07); backdrop-filter: blur(8px);
       cursor: pointer; transition: background .2s, border-color .2s, transform .15s;
+      flex: 1; min-width: 130px;
     }
-    .cta-card:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); transform: translateY(-2px); }
-    .cta-card-icon { font-size: 28px; }
-    .cta-card-text strong { display: block; font-size: 11px; font-weight: 700; opacity: .7; letter-spacing: .5px; text-transform: uppercase; }
-    .cta-card-text span { display: block; font-size: 16px; font-weight: 800; }
+    .ccard:hover { background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.4); transform: translateY(-2px); }
+    .ccard-icon { font-size: 26px; flex-shrink: 0; }
+    .ccard strong { display: block; font-size: 11px; font-weight: 700; opacity: .7; letter-spacing: .4px; text-transform: uppercase; }
+    .ccard span { display: block; font-size: 15px; font-weight: 800; }
     .cta-brand { text-align: center; }
-    .cta-brand p { font-size: 15px; margin-top: 12px; opacity: .75; }
-    .cta-certif {
-      margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;
+    .cta-brand p { font-size: 14px; margin-top: 10px; opacity: .75; }
+    .certif {
+      margin-top: 18px; display: inline-flex; align-items: center; gap: 7px;
       background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-      padding: 10px 18px; border-radius: 100px; font-size: 13px; font-weight: 600;
+      padding: 9px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
     }
 
-    /* ── FOOTER ── */
+    /* ────────────────────────────────
+       FOOTER
+    ──────────────────────────────── */
     footer { background: var(--navy-dark); color: rgba(255,255,255,.6); }
     .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
-      gap: 40px; padding: 56px 7% 40px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.3fr;
+      gap: 36px; padding: 52px 5% 36px;
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .footer-brand p { font-size: 14px; margin-top: 14px; line-height: 1.7; }
-    .footer-col h4 {
-      font-size: 13px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .8px; color: white; margin-bottom: 18px;
+    .fbrand p { font-size: 14px; margin-top: 12px; line-height: 1.7; }
+    .fcol h4 {
+      font-size: 12px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .8px; color: white; margin-bottom: 16px;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { font-size: 14px; opacity: .7; transition: opacity .2s; }
-    .footer-col a:hover { opacity: 1; color: var(--orange-light); }
-    .footer-contact-item { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 12px; opacity: .8; }
-    .footer-bottom {
+    .fcol ul { list-style: none; }
+    .fcol li { margin-bottom: 9px; }
+    .fcol a { font-size: 14px; opacity: .7; transition: opacity .2s; }
+    .fcol a:hover { opacity: 1; color: var(--orange-light); }
+    .fci { display: flex; align-items: center; gap: 9px; font-size: 14px; margin-bottom: 11px; opacity: .8; }
+    .footer-bot {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 7%; font-size: 13px; gap: 16px; flex-wrap: wrap;
+      padding: 16px 5%; font-size: 13px; gap: 12px; flex-wrap: wrap;
     }
-    .footer-bottom a { color: var(--orange-light); }
+    .footer-bot a { color: var(--orange-light); }
 
-    /* ── MOBILE ── */
-    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-    .ham span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
-    .nav-mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 90; }
-    .nav-mobile-overlay.open { display: block; }
-    .nav-mobile {
-      position: fixed; top: 0; right: -100%; width: 280px; height: 100%;
-      background: white; z-index: 95; padding: 24px;
-      box-shadow: var(--shadow-lg); transition: right .3s ease; overflow-y: auto;
-    }
-    .nav-mobile.open { right: 0; }
-    .nav-mobile a { display: block; font-size: 15px; font-weight: 700; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--navy); }
-    .nav-mobile .btn-nav { margin-top: 20px; text-align: center; display: block; }
+    /* ────────────────────────────────
+       SCROLL REVEAL
+    ──────────────────────────────── */
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+    .rv-1 { transition-delay: .1s; }
+    .rv-2 { transition-delay: .2s; }
+    .rv-3 { transition-delay: .3s; }
+    .rv-4 { transition-delay: .4s; }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
-    .reveal-delay-4 { transition-delay: .4s; }
+    /* ════════════════════════════════
+       RESPONSIVE — TABLET (≤ 1024px)
+    ════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .desk-nav { display: none; }
+      .ham { display: flex; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .process-steps::before { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 36px; padding: 48px 5% 44px; }
+      .hero h1 { font-size: 42px; }
+      .hero-visual { order: -1; }
+      .hero-img-wrap img { height: 340px; }
+      .float-card { display: none; }
+      .hero-btns { gap: 12px; }
+
+      .solutions-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+      .process-grid::before { display: none; }
+
+      .testi-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+
+      .cta-inner { grid-template-columns: 1fr; gap: 36px; }
+      .cta-brand { text-align: left; }
+
       .footer-top { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 900px) {
-      nav { display: none; }
-      .ham { display: flex; }
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 50px 7%; }
-      .hero h1 { font-size: 40px; }
-      .hero-visual { order: -1; }
-      .hero-img-wrap img { height: 320px; }
-      .floating-card { display: none; }
-      .solutions { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: 1fr 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
-      .topbar { flex-direction: column; gap: 8px; }
-    }
-    @media (max-width: 600px) {
+
+    /* ════════════════════════════════
+       RESPONSIVE — MOBILE (≤ 640px)
+    ════════════════════════════════ */
+    @media (max-width: 640px) {
+      /* topbar */
+      .topbar { flex-direction: column; text-align: center; padding: 10px 5%; gap: 6px; }
+      .topbar-contacts { justify-content: center; gap: 12px; }
+      .topbar-contact { font-size: 12px; }
+
+      /* hero */
+      .hero { padding: 36px 5% 36px; gap: 28px; }
       .hero h1 { font-size: 32px; }
-      .hero-actions { flex-direction: column; }
-      .hero-btn { min-width: unset; }
-      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .hero-badge { font-size: 11px; }
+      .hero-sub { font-size: 15px; margin-bottom: 24px; }
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .hbtn { min-width: unset; flex: unset; width: 100%; padding: 14px 18px; }
+      .hero-img-wrap img { height: 240px; }
+      .hero-img-badge { padding: 11px 13px; }
+      .hero-img-badge .bi { font-size: 22px; }
+      .hero-img-badge strong { font-size: 12px; }
+      .hero-stats { gap: 16px; margin-top: 24px; padding-top: 20px; }
+      .hstat .num { font-size: 20px; }
+
+      /* section titles */
+      section { padding: 48px 5%; }
+      .stitle { font-size: 26px; }
+      .ssub { font-size: 14px; }
+      .sec-head { margin-bottom: 36px; }
+
+      /* solutions */
+      .solutions-grid { max-width: 100%; }
+      .ph { padding: 22px 20px 18px; }
+      .ph h2 { font-size: 18px; }
+      .pb { padding: 18px; }
+      .svc { flex-direction: column; align-items: flex-start; gap: 12px; padding: 15px; }
+      .svc-icon { width: 44px; height: 44px; font-size: 20px; }
+      .svc-info h3 { font-size: 13px; }
+
+      /* trust */
       .trust-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      .section-title { font-size: 28px; }
-      .cta-inner h2 { font-size: 26px; }
-      .footer-top { grid-template-columns: 1fr; }
+      .tcard { padding: 22px 18px; }
+
+      /* process */
+      .process-grid { grid-template-columns: 1fr; gap: 28px; }
+      .step { display: flex; flex-direction: row; align-items: flex-start; gap: 16px; text-align: left; padding: 0; }
+      .step-n { margin: 0; width: 52px; height: 52px; font-size: 18px; flex-shrink: 0; }
+      .step-txt { flex: 1; }
+      .step h3 { font-size: 14px; }
+
+      /* testimonials */
+      .testi-grid { max-width: 100%; }
+
+      /* cta */
+      .cta-section { padding: 48px 5%; }
+      .cta-inner h2 { font-size: 24px; }
+      .cta-sub { font-size: 15px; margin-bottom: 20px; }
+      .cta-cards { flex-direction: column; gap: 10px; }
+      .ccard { min-width: unset; }
+
+      /* footer */
+      .footer-top { grid-template-columns: 1fr; gap: 28px; padding: 36px 5% 28px; }
+      .footer-bot { flex-direction: column; text-align: center; gap: 8px; }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE — SMALL (≤ 380px)
+    ════════════════════════════════ */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 28px; }
+      .stitle { font-size: 23px; }
+      .logo-text .l2 { font-size: 16px; }
     }
   </style>
 </head>
@@ -521,18 +626,16 @@
 
   <!-- TOP BAR -->
   <div class="topbar">
-    <span>🇲🇦 Votre partenaire RH &amp; éducatif au Maroc</span>
+    <span class="topbar-left">🇲🇦 Votre partenaire RH &amp; éducatif au Maroc</span>
     <div class="topbar-contacts">
-      <a class="topbar-contact" href="tel:0621009191">📞 GSM : 0621009191</a>
-      <a class="topbar-contact" href="https://wa.me/212691080862">
-        <span class="dot"></span> WhatsApp : 0691080862
-      </a>
-      <a class="topbar-contact" href="mailto:contact@rhcoachingclasses.ma">✉️ contact@rhcoachingclasses.ma</a>
+      <a class="topbar-contact" href="tel:0621009191">📞 0621 009 191</a>
+      <a class="topbar-contact" href="https://wa.me/212691080862"><span class="dot"></span> WhatsApp</a>
+      <a class="topbar-contact" href="mailto:contact@rhcoachingclasses.ma">✉️ Email</a>
     </div>
   </div>
 
   <!-- HEADER -->
-  <header>
+  <header id="header">
     <div class="header-inner">
       <a href="#" class="logo">
         <div class="logo-icon">
@@ -540,88 +643,97 @@
           <div class="book-front"></div>
         </div>
         <div class="logo-text">
-          <div class="line1">Coaching</div>
-          <div class="line2">Classes <span>RH</span></div>
-          <div class="line3">Profs</div>
+          <div class="l1">Coaching</div>
+          <div class="l2">Classes <span>RH</span></div>
+          <div class="l3">Profs</div>
         </div>
       </a>
-      <nav>
+
+      <nav class="desk-nav">
         <a href="#" class="active">Accueil</a>
         <a href="#solutions">Écoles</a>
         <a href="#solutions">Familles</a>
-        <a href="#process">Nos Services</a>
-        <a href="#trust">À Propos</a>
+        <a href="#process">Services</a>
+        <a href="#trust">À propos</a>
         <a href="#cta">Contact</a>
-        <a href="#cta" class="btn-nav">Demander un service</a>
+        <a href="#cta" class="btn-cta">Demander un service</a>
       </nav>
-      <div class="ham" id="ham" onclick="toggleMenu()">
+
+      <button class="ham" id="ham" aria-label="Menu" onclick="openMenu()">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
   </header>
 
-  <!-- MOBILE NAV -->
-  <div class="nav-mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
-  <div class="nav-mobile" id="mobileNav">
-    <a href="#">Accueil</a>
-    <a href="#solutions">Espace Écoles</a>
-    <a href="#solutions">Espace Familles</a>
-    <a href="#process">Nos Services</a>
-    <a href="#trust">À Propos</a>
-    <a href="#cta">Contact</a>
-    <a href="#cta" class="btn-nav">Demander un service</a>
+  <!-- MOBILE DRAWER -->
+  <div class="mob-overlay" id="overlay" onclick="closeMenu()"></div>
+  <div class="mob-nav" id="mobNav">
+    <div class="mob-nav-head">
+      <div class="logo">
+        <div class="logo-icon"><div class="book-back"></div><div class="book-front"></div></div>
+        <div class="logo-text">
+          <div class="l1">Coaching</div>
+          <div class="l2">Classes <span>RH</span></div>
+          <div class="l3">Profs</div>
+        </div>
+      </div>
+      <button class="mob-nav-close" onclick="closeMenu()">✕</button>
+    </div>
+    <div class="mob-nav-links">
+      <a href="#" onclick="closeMenu()"><span class="nav-icon">🏠</span> Accueil</a>
+      <a href="#solutions" onclick="closeMenu()"><span class="nav-icon">🏫</span> Espace Écoles</a>
+      <a href="#solutions" onclick="closeMenu()"><span class="nav-icon">👨‍👩‍👧</span> Espace Familles</a>
+      <a href="#process" onclick="closeMenu()"><span class="nav-icon">🔄</span> Nos Services</a>
+      <a href="#trust" onclick="closeMenu()"><span class="nav-icon">⭐</span> À Propos</a>
+      <a href="#cta" onclick="closeMenu()"><span class="nav-icon">📞</span> Contact</a>
+    </div>
+    <div class="mob-nav-footer">
+      <a href="#cta" class="mob-cta-btn" onclick="closeMenu()">🎯 Demander un service</a>
+      <div class="mob-contact-row">
+        <a href="tel:0621009191" class="mob-contact-btn">📞 0621 009 191</a>
+        <a href="https://wa.me/212691080862" class="mob-contact-btn"><span style="color:#25d366">●</span> WhatsApp</a>
+      </div>
+    </div>
   </div>
 
   <!-- HERO -->
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-badge">Disponible 7j/7 au Maroc</div>
-      <h1>Votre partenaire<br><span class="highlight">RH &amp; éducatif</span><br>au Maroc</h1>
+      <div class="hero-badge"><span class="pulse"></span> Disponible 7j/7 au Maroc</div>
+      <h1>Votre partenaire<br><span class="hl">RH &amp; éducatif</span><br>au Maroc</h1>
       <p class="hero-sub">
         <strong>Recrutement de profs – Remplacement urgent – AVS</strong><br>
         Soutien scolaire à domicile ou à distance
       </p>
-      <div class="hero-actions">
-        <a href="#solutions" class="hero-btn btn-blue">
-          <span class="btn-icon">🏫</span>
-          <span class="btn-text">
-            <span class="btn-main">Je suis une École</span>
-            <span class="btn-sub">Recruter ou remplacer un prof</span>
-          </span>
+      <div class="hero-btns">
+        <a href="#solutions" class="hbtn hbtn-blue">
+          <span class="hi">🏫</span>
+          <span><span class="hm">Je suis une École</span><span class="hs">Recruter ou remplacer un prof</span></span>
         </a>
-        <a href="#solutions" class="hero-btn btn-orange">
-          <span class="btn-icon">👨‍👩‍👧</span>
-          <span class="btn-text">
-            <span class="btn-main">Je suis une Famille</span>
-            <span class="btn-sub">Trouver un accompagnement</span>
-          </span>
+        <a href="#solutions" class="hbtn hbtn-orange">
+          <span class="hi">👨‍👩‍👧</span>
+          <span><span class="hm">Je suis une Famille</span><span class="hs">Trouver un accompagnement</span></span>
         </a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="num">500<span>+</span></div><div class="lbl">Profs placés</div></div>
-        <div class="hero-stat"><div class="num">200<span>+</span></div><div class="lbl">Écoles partenaires</div></div>
-        <div class="hero-stat"><div class="num">24<span>h</span></div><div class="lbl">Réponse garantie</div></div>
-        <div class="hero-stat"><div class="num">5<span>★</span></div><div class="lbl">Satisfaction client</div></div>
+        <div class="hstat"><div class="num">500<em>+</em></div><div class="lbl">Profs placés</div></div>
+        <div class="hstat"><div class="num">200<em>+</em></div><div class="lbl">Écoles partenaires</div></div>
+        <div class="hstat"><div class="num">24<em>h</em></div><div class="lbl">Réponse garantie</div></div>
+        <div class="hstat"><div class="num">5<em>★</em></div><div class="lbl">Satisfaction</div></div>
       </div>
     </div>
 
     <div class="hero-visual">
-      <div class="floating-card">
-        <div class="fc-icon">⚡</div>
-        <div class="fc-text">
-          <strong>Remplacement rapide</strong>
-          <span>Disponible sous 24h</span>
-        </div>
+      <div class="float-card">
+        <span class="fi">⚡</span>
+        <span><strong>Remplacement rapide</strong><span>Disponible sous 24h</span></span>
       </div>
       <div class="hero-img-wrap">
-        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80" alt="Coaching Classes RH Profs" />
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80" alt="Coaching RH Profs" loading="lazy" />
         <div class="hero-img-overlay"></div>
         <div class="hero-img-badge">
-          <div class="badge-icon">🛡️</div>
-          <div class="badge-text">
-            <strong>Profs vérifiés &amp; qualifiés</strong>
-            <span>Sélection rigoureuse, profils validés</span>
-          </div>
+          <span class="bi">🛡️</span>
+          <span><strong>Profs vérifiés &amp; qualifiés</strong><span>Sélection rigoureuse, profils validés</span></span>
         </div>
       </div>
     </div>
@@ -629,26 +741,22 @@
 
   <!-- SOLUTIONS -->
   <section id="solutions">
-    <div class="section-header reveal">
-      <div class="section-label">Nos Solutions</div>
-      <h2 class="section-title">Des solutions adaptées à vos besoins</h2>
-      <p class="section-sub">Que vous soyez une école ou une famille, nous avons la bonne réponse pour vous.</p>
+    <div class="sec-head rv">
+      <div class="slabel">Nos Solutions</div>
+      <h2 class="stitle">Des solutions adaptées à vos besoins</h2>
+      <p class="ssub">Que vous soyez une école ou une famille, nous avons la bonne réponse.</p>
       <div class="divider"></div>
     </div>
-    <div class="solutions">
-      <!-- ÉCOLE -->
-      <div class="panel school reveal reveal-delay-1">
-        <div class="panel-header">
-          <div class="panel-header-icon">🏫</div>
-          <h2>Espace Écoles</h2>
-          <p>Vous êtes une école ? On s'occupe de vos enseignants.</p>
-        </div>
-        <div class="panel-body">
-          <div class="service-card">
-            <div class="service-icon">👥</div>
-            <div class="service-info">
+    <div class="solutions-grid">
+
+      <div class="panel school rv rv-1">
+        <div class="ph"><div class="ph-icon">🏫</div><h2>Espace Écoles</h2><p>Vous êtes une école ?<br>On s'occupe de vos enseignants.</p></div>
+        <div class="pb">
+          <div class="svc">
+            <div class="svc-icon">👥</div>
+            <div class="svc-info">
               <h3>RECRUTEMENT DE PROFS</h3>
-              <ul class="feature-list">
+              <ul class="flist">
                 <li>Profils qualifiés et vérifiés</li>
                 <li>Tout le volet recrutement pris en charge</li>
                 <li>Prix négociable à partir de 5 profs</li>
@@ -656,171 +764,141 @@
               </ul>
             </div>
           </div>
-          <div class="service-card">
-            <div class="service-icon">⏱️</div>
-            <div class="service-info">
+          <div class="svc">
+            <div class="svc-icon">⏱️</div>
+            <div class="svc-info">
               <h3>REMPLACEMENT URGENT</h3>
-              <ul class="feature-list">
+              <ul class="flist">
                 <li>Prof disponible sous 24h</li>
                 <li>Intervention rapide et efficace</li>
                 <li>Continuité assurée de vos cours</li>
               </ul>
             </div>
           </div>
-          <a href="#cta" class="panel-cta">🎯 Demander un Professeur</a>
+          <a href="#cta" class="pcta">🎯 Demander un Professeur</a>
         </div>
       </div>
 
-      <!-- FAMILLE -->
-      <div class="panel family reveal reveal-delay-2">
-        <div class="panel-header">
-          <div class="panel-header-icon">👨‍👩‍👧</div>
-          <h2>Espace Familles</h2>
-          <p>Vous cherchez un accompagnement pour votre enfant ?</p>
-        </div>
-        <div class="panel-body">
-          <div class="service-card">
-            <div class="service-icon">🧒</div>
-            <div class="service-info">
+      <div class="panel family rv rv-2">
+        <div class="ph"><div class="ph-icon">👨‍👩‍👧</div><h2>Espace Familles</h2><p>Accompagnement scolaire<br>personnalisé pour votre enfant.</p></div>
+        <div class="pb">
+          <div class="svc">
+            <div class="svc-icon">🧒</div>
+            <div class="svc-info">
               <h3>AVS – AUXILIAIRE DE VIE SCOLAIRE</h3>
-              <ul class="feature-list">
+              <ul class="flist">
                 <li>Accompagnement personnalisé</li>
                 <li>Pour enfants à besoins spécifiques</li>
                 <li>À domicile ou à l'école</li>
               </ul>
             </div>
           </div>
-          <div class="service-card">
-            <div class="service-icon">🏠</div>
-            <div class="service-info">
+          <div class="svc">
+            <div class="svc-icon">🏠</div>
+            <div class="svc-info">
               <h3>PROF À DOMICILE</h3>
-              <ul class="feature-list">
+              <ul class="flist">
                 <li>Toutes matières, tous niveaux</li>
                 <li>Professeurs qualifiés et sélectionnés</li>
                 <li>Suivi personnalisé et régulier</li>
               </ul>
             </div>
           </div>
-          <div class="service-card">
-            <div class="service-icon">💻</div>
-            <div class="service-info">
+          <div class="svc">
+            <div class="svc-icon">💻</div>
+            <div class="svc-info">
               <h3>COURS À DISTANCE</h3>
-              <ul class="feature-list">
+              <ul class="flist">
                 <li>Cours en ligne interactifs</li>
-                <li>Horaires flexibles selon vos disponibilités</li>
+                <li>Horaires flexibles</li>
                 <li>Exercices et suivi personnalisés</li>
               </ul>
             </div>
           </div>
-          <a href="#cta" class="panel-cta">🎓 Trouver un Accompagnant</a>
+          <a href="#cta" class="pcta">🎓 Trouver un Accompagnant</a>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- TRUST -->
   <section class="trust" id="trust">
-    <div class="section-header reveal">
-      <div class="section-label">Pourquoi nous ?</div>
-      <h2 class="section-title">Pourquoi nous faire confiance ?</h2>
+    <div class="sec-head rv">
+      <div class="slabel">Pourquoi nous ?</div>
+      <h2 class="stitle">Pourquoi nous faire confiance ?</h2>
       <div class="divider"></div>
     </div>
     <div class="trust-grid">
-      <div class="trust-card reveal reveal-delay-1">
-        <div class="trust-icon">🛡️</div>
-        <h3>Professeurs sélectionnés</h3>
-        <p>Chaque profil est vérifié, qualifié et expérimenté avant d'être proposé.</p>
-      </div>
-      <div class="trust-card reveal reveal-delay-2">
-        <div class="trust-icon">⚡</div>
-        <h3>Réponse rapide</h3>
-        <p>Nous répondons à vos demandes dans les meilleurs délais, souvent sous 24h.</p>
-      </div>
-      <div class="trust-card reveal reveal-delay-3">
-        <div class="trust-icon">🎯</div>
-        <h3>Suivi personnalisé</h3>
-        <p>Un accompagnement sur mesure pour chaque demande, école ou famille.</p>
-      </div>
-      <div class="trust-card reveal reveal-delay-4">
-        <div class="trust-icon">⭐</div>
-        <h3>Qualité &amp; Sérénité</h3>
-        <p>Notre priorité : votre satisfaction et celle de vos élèves à chaque étape.</p>
-      </div>
+      <div class="tcard rv rv-1"><div class="tcard-icon">🛡️</div><h3>Professeurs sélectionnés</h3><p>Chaque profil est vérifié, qualifié et expérimenté avant d'être proposé.</p></div>
+      <div class="tcard rv rv-2"><div class="tcard-icon">⚡</div><h3>Réponse rapide</h3><p>Nous répondons à vos demandes dans les meilleurs délais, souvent sous 24h.</p></div>
+      <div class="tcard rv rv-3"><div class="tcard-icon">🎯</div><h3>Suivi personnalisé</h3><p>Un accompagnement sur mesure pour chaque demande, école ou famille.</p></div>
+      <div class="tcard rv rv-4"><div class="tcard-icon">⭐</div><h3>Qualité &amp; Sérénité</h3><p>Notre priorité : votre satisfaction et celle de vos élèves.</p></div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="section-header reveal">
-      <div class="section-label">Comment ça marche</div>
-      <h2 class="section-title">Un processus simple en 4 étapes</h2>
-      <p class="section-sub">De votre demande à la mise en place, nous gérons tout pour vous.</p>
+  <section id="process">
+    <div class="sec-head rv">
+      <div class="slabel">Comment ça marche</div>
+      <h2 class="stitle">Un processus simple en 4 étapes</h2>
+      <p class="ssub">De votre demande à la mise en place, nous gérons tout pour vous.</p>
       <div class="divider"></div>
     </div>
-    <div class="process-steps">
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">1</div>
-        <h3>Vous nous contactez</h3>
-        <p>Par téléphone, WhatsApp ou formulaire. Nous vous répondons rapidement.</p>
+    <div class="process-grid">
+      <div class="step rv rv-1">
+        <div class="step-n">1</div>
+        <div class="step-txt">
+          <h3>Vous nous contactez</h3>
+          <p>Par téléphone, WhatsApp ou formulaire. Nous vous répondons rapidement.</p>
+        </div>
       </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">2</div>
-        <h3>Analyse de votre besoin</h3>
-        <p>Nous identifions précisément ce dont vous avez besoin pour un matching optimal.</p>
+      <div class="step rv rv-2">
+        <div class="step-n">2</div>
+        <div class="step-txt">
+          <h3>Analyse de votre besoin</h3>
+          <p>Nous identifions précisément ce dont vous avez besoin pour un matching optimal.</p>
+        </div>
       </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-num">3</div>
-        <h3>Sélection du profil</h3>
-        <p>Nous sélectionnons le meilleur profil parmi nos candidats vérifiés.</p>
+      <div class="step rv rv-3">
+        <div class="step-n">3</div>
+        <div class="step-txt">
+          <h3>Sélection du profil</h3>
+          <p>Nous sélectionnons le meilleur profil parmi nos candidats vérifiés.</p>
+        </div>
       </div>
-      <div class="step reveal reveal-delay-4">
-        <div class="step-num">4</div>
-        <h3>Mise en place &amp; suivi</h3>
-        <p>Démarrage rapide et suivi continu pour garantir votre satisfaction.</p>
+      <div class="step rv rv-4">
+        <div class="step-n">4</div>
+        <div class="step-txt">
+          <h3>Mise en place &amp; suivi</h3>
+          <p>Démarrage rapide et suivi continu pour garantir votre satisfaction.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="section-header reveal">
-      <div class="section-label">Témoignages</div>
-      <h2 class="section-title">Ce que nos clients disent</h2>
+  <section class="testi-section">
+    <div class="sec-head rv">
+      <div class="slabel">Témoignages</div>
+      <h2 class="stitle">Ce que nos clients disent</h2>
       <div class="divider"></div>
     </div>
     <div class="testi-grid">
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Nous avons trouvé deux excellents professeurs en moins de 48h. Service réactif et professionnel, je recommande vivement ! »</p>
-        <div class="testi-author">
-          <div class="testi-avatar">F</div>
-          <div class="testi-author-info">
-            <strong>Fatima Zahra B.</strong>
-            <span>Directrice – École privée, Casablanca</span>
-          </div>
-        </div>
+      <div class="tcard2 rv rv-1">
+        <div class="stars">★★★★★</div>
+        <p class="ttext">« Deux excellents professeurs trouvés en moins de 48h. Service réactif et professionnel — je recommande vivement ! »</p>
+        <div class="tauthor"><div class="tavatar">F</div><div class="tinfo"><strong>Fatima Zahra B.</strong><span>Directrice – École privée, Casablanca</span></div></div>
       </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« L'AVS trouvée pour notre fils a fait une vraie différence. Un accompagnement doux, professionnel et adapté. Merci ! »</p>
-        <div class="testi-author">
-          <div class="testi-avatar">K</div>
-          <div class="testi-author-info">
-            <strong>Karim &amp; Nadia M.</strong>
-            <span>Parents – Rabat</span>
-          </div>
-        </div>
+      <div class="tcard2 rv rv-2">
+        <div class="stars">★★★★★</div>
+        <p class="ttext">« L'AVS trouvée pour notre fils a fait une vraie différence. Un accompagnement doux, professionnel et adapté. Merci ! »</p>
+        <div class="tauthor"><div class="tavatar">K</div><div class="tinfo"><strong>Karim &amp; Nadia M.</strong><span>Parents – Rabat</span></div></div>
       </div>
-      <div class="testi-card reveal reveal-delay-3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Les cours à distance sont très bien organisés. Notre fille a progressé rapidement en maths. Le suivi est régulier et motivant. »</p>
-        <div class="testi-author">
-          <div class="testi-avatar">S</div>
-          <div class="testi-author-info">
-            <strong>Salima A.</strong>
-            <span>Parent – Marrakech</span>
-          </div>
-        </div>
+      <div class="tcard2 rv rv-3">
+        <div class="stars">★★★★★</div>
+        <p class="ttext">« Les cours à distance sont très bien organisés. Notre fille a progressé rapidement. Le suivi est régulier et motivant. »</p>
+        <div class="tauthor"><div class="tavatar">S</div><div class="tinfo"><strong>Salima A.</strong><span>Parent – Marrakech</span></div></div>
       </div>
     </div>
   </section>
@@ -832,43 +910,34 @@
         <h2>Besoin d'un professeur ou d'un accompagnant ?</h2>
         <div class="cta-sub">Contactez-nous dès maintenant !</div>
         <div class="cta-cards">
-          <a href="tel:0621009191" class="cta-card">
-            <div class="cta-card-icon">📞</div>
-            <div class="cta-card-text">
-              <strong>Appel direct</strong>
-              <span>0621 009 191</span>
-            </div>
+          <a href="tel:0621009191" class="ccard">
+            <span class="ccard-icon">📞</span>
+            <span><strong>Appel direct</strong><span>0621 009 191</span></span>
           </a>
-          <a href="https://wa.me/212691080862" class="cta-card">
-            <div class="cta-card-icon">💬</div>
-            <div class="cta-card-text">
-              <strong>WhatsApp</strong>
-              <span>0691 080 862</span>
-            </div>
+          <a href="https://wa.me/212691080862" class="ccard">
+            <span class="ccard-icon">💬</span>
+            <span><strong>WhatsApp</strong><span>0691 080 862</span></span>
           </a>
-          <a href="mailto:contact@rhcoachingclasses.ma" class="cta-card">
-            <div class="cta-card-icon">✉️</div>
-            <div class="cta-card-text">
-              <strong>E-mail</strong>
-              <span>Formulaire de contact</span>
-            </div>
+          <a href="mailto:contact@rhcoachingclasses.ma" class="ccard">
+            <span class="ccard-icon">✉️</span>
+            <span><strong>E-mail</strong><span>Formulaire de contact</span></span>
           </a>
         </div>
       </div>
       <div class="cta-brand">
         <div class="logo">
           <div class="logo-icon">
-            <div class="book-back" style="border-color:white"></div>
+            <div class="book-back" style="border-color:rgba(255,255,255,.7)"></div>
             <div class="book-front"></div>
           </div>
           <div class="logo-text">
-            <div class="line1" style="color:rgba(255,255,255,.5)">Coaching</div>
-            <div class="line2" style="color:white">Classes <span>RH</span></div>
-            <div class="line3" style="color:rgba(255,255,255,.5)">Profs</div>
+            <div class="l1" style="color:rgba(255,255,255,.5)">Coaching</div>
+            <div class="l2" style="color:white; font-size:22px">Classes <span>RH</span></div>
+            <div class="l3" style="color:rgba(255,255,255,.5)">Profs</div>
           </div>
         </div>
         <p>Votre partenaire RH &amp; éducatif au Maroc</p>
-        <div class="cta-certif">🇲🇦 Service 100% marocain</div>
+        <div class="certif">🇲🇦 Service 100% marocain</div>
       </div>
     </div>
   </div>
@@ -876,21 +945,21 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo" style="margin-bottom:16px">
+      <div class="fbrand">
+        <div class="logo" style="margin-bottom:14px">
           <div class="logo-icon">
-            <div class="book-back" style="border-color:white"></div>
+            <div class="book-back" style="border-color:rgba(255,255,255,.7)"></div>
             <div class="book-front"></div>
           </div>
           <div class="logo-text">
-            <div class="line1">Coaching</div>
-            <div class="line2" style="color:white">Classes <span>RH</span></div>
-            <div class="line3">Profs</div>
+            <div class="l1">Coaching</div>
+            <div class="l2" style="color:white">Classes <span>RH</span></div>
+            <div class="l3">Profs</div>
           </div>
         </div>
         <p>Votre partenaire de confiance pour le recrutement d'enseignants et l'accompagnement scolaire au Maroc.</p>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Services</h4>
         <ul>
           <li><a href="#">Recrutement de profs</a></li>
@@ -900,7 +969,7 @@
           <li><a href="#">Cours à distance</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Liens utiles</h4>
         <ul>
           <li><a href="#">Accueil</a></li>
@@ -910,36 +979,46 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Contact</h4>
-        <div class="footer-contact-item">📞 <span>GSM : 0621 009 191</span></div>
-        <div class="footer-contact-item"><span style="color:#25d366">●</span> <span>WhatsApp : 0691 080 862</span></div>
-        <div class="footer-contact-item">✉️ <span>contact@rhcoachingclasses.ma</span></div>
-        <div class="footer-contact-item">🌐 <span>www.rhcoachingclasses.ma</span></div>
+        <div class="fci">📞 <span>0621 009 191</span></div>
+        <div class="fci"><span style="color:#25d366;font-size:9px">●</span> <span>0691 080 862</span></div>
+        <div class="fci">✉️ <span>contact@rhcoachingclasses.ma</span></div>
+        <div class="fci">🌐 <span>www.rhcoachingclasses.ma</span></div>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bot">
       <span>© 2024 Coaching Classes RH Profs – Tous droits réservés.</span>
       <span><a href="#">Politique de confidentialité</a> · <a href="#">Mentions légales</a></span>
     </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('mobileNav').classList.toggle('open');
-      document.getElementById('overlay').classList.toggle('open');
+    // ── Mobile menu ──
+    function openMenu() {
+      document.getElementById('mobNav').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+      document.getElementById('ham').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      document.getElementById('mobNav').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+      document.getElementById('ham').classList.remove('open');
+      document.body.style.overflow = '';
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ── Scroll reveal ──
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
+    // ── Sticky header shadow ──
     window.addEventListener('scroll', () => {
-      document.querySelector('header').style.boxShadow = window.scrollY > 10
-        ? '0 4px 24px rgba(6,40,93,.14)'
-        : '0 2px 12px rgba(6,40,93,.07)';
-    });
+      document.getElementById('header').style.boxShadow =
+        window.scrollY > 10 ? '0 4px 24px rgba(6,40,93,.14)' : '0 2px 12px rgba(6,40,93,.07)';
+    }, { passive: true });
   </script>
 
 </body>
